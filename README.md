@@ -4,7 +4,7 @@ A Chrome new-tab extension with a cinematic sky theme, fast search commands, qui
 
 ## Preview
 
-![Zenth New Tab Preview](screenshots/1.jpeg)
+![Zenth New Tab Preview](screenshots/2.jpeg)
 
 ## Features
 
