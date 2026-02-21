@@ -1,0 +1,304 @@
+.search-bar {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    z-index: 30;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: min(760px, calc(100% - 40px));
+    padding: 8px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--ui-bar-border);
+    background: linear-gradient(180deg, var(--ui-bar-1), var(--ui-bar-2));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 34px rgba(14, 20, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.search-bar:focus-within {
+    transform: translateX(-50%) translateY(-2px);
+    border-color: var(--ui-accent-2);
+    box-shadow: 0 16px 30px rgba(8, 28, 64, 0.34), 0 0 0 3px rgba(235, 185, 41, 0.2);
+}
+
+.dock-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 0 6px 0 2px;
+}
+
+.custom-apps {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.app-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.app-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.96;
+}
+
+.app-icon.add-app {
+    border: 1px dashed rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: none;
+    color: #ffffff;
+}
+
+.app-icon.add-app svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.app-icon.custom {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.18));
+}
+
+.app-icon.custom img {
+    width: 18px;
+    height: 18px;
+    filter: none;
+    opacity: 1;
+}
+
+.search-bar button.custom-app-remove {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #c63333;
+    color: #ffffff;
+    font-size: 7px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.custom-app-remove:hover {
+    background: #dd3b3b;
+}
+
+.app-icon.youtube {
+    background: radial-gradient(circle at 35% 35%, #ff4040, #ce1f1f);
+}
+
+.app-icon.twitter {
+    background: radial-gradient(circle at 35% 35%, #58b5ff, #1b75f2);
+}
+
+.app-icon.ai {
+    background: radial-gradient(circle at 35% 35%, #2a684d, #0f3f2d);
+}
+
+.app-icon.reddit {
+    background: radial-gradient(circle at 35% 35%, #ff7e45, #eb4f1e);
+}
+
+.app-icon.orange {
+    background: radial-gradient(circle at 35% 35%, #ffb854, #f2891a);
+}
+
+.app-icon.claude {
+    background: radial-gradient(circle at 35% 35%, #d8a86a, #a56a33);
+}
+
+.search-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(86, 95, 111, 0.25);
+    margin: 0 2px 0 4px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--ui-bar-text);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--ui-bar-placeholder);
+}
+
+.search-bar input::-webkit-input-placeholder {
+    color: var(--ui-bar-placeholder);
+}
+
+.search-bar input::-moz-placeholder {
+    color: var(--ui-bar-placeholder);
+}
+
+.search-bar button {
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    color: #4b5568;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform 130ms ease, box-shadow 130ms ease, filter 130ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.search-bar button svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.search-bar button:hover {
+    filter: brightness(0.98);
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.search-bar button:active {
+    transform: translateY(0);
+}
+
+.prompt-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    background: var(--ui-overlay);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.prompt-overlay[hidden] {
+    display: none !important;
+}
+
+.prompt-modal {
+    width: min(420px, calc(100% - 24px));
+    border-radius: 16px;
+    border: 1px solid var(--ui-border);
+    background: linear-gradient(155deg, var(--ui-glass-1), var(--ui-glass-2));
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.prompt-title {
+    color: var(--ui-text);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.prompt-label {
+    display: block;
+    color: var(--ui-muted-text);
+    font-size: 12px;
+    margin: 8px 0 5px;
+}
+
+.prompt-input {
+    width: 100%;
+    border: 1px solid var(--ui-border);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--ui-text);
+    font-size: 14px;
+    padding: 9px 10px;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.prompt-input:focus {
+    border-color: var(--ui-accent-2);
+}
+
+.prompt-error {
+    min-height: 16px;
+    margin-top: 8px;
+    color: #ffd0c5;
+    font-size: 12px;
+}
+
+.prompt-actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.prompt-actions button {
+    border: none;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#promptCancelBtn {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--ui-text);
+}
+
+#promptSaveBtn {
+    background: linear-gradient(180deg, var(--ui-accent-1), var(--ui-accent-2));
+    color: #2b1f00;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .search-bar {
+        background: rgba(230, 216, 178, 0.95);
+    }
+
+    .prompt-overlay {
+        background: rgba(8, 12, 22, 0.7);
+    }
+
+    .prompt-modal {
+        background: rgba(24, 40, 69, 0.96);
+    }
+}

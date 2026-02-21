@@ -1,0 +1,126 @@
+@media (max-width: 700px) {
+    .hud-left {
+        top: 16px;
+        left: 16px;
+    }
+
+    .clock-time {
+        font-size: 54px;
+    }
+
+    .clock-date {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+
+    .corner-greeting {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 86px;
+        max-width: calc(100% - 18px);
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .github-widget {
+        top: auto;
+        bottom: 96px;
+        right: 8px;
+        left: 8px;
+        width: auto;
+        padding: 10px;
+    }
+
+    .github-title {
+        font-size: 13px;
+        margin-bottom: 7px;
+    }
+
+    .github-form input {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+    .github-stats span {
+        font-size: 14px;
+    }
+
+    .quick-notes {
+        right: 8px;
+        left: 8px;
+        width: auto;
+        top: auto;
+        bottom: 300px;
+    }
+
+    .note-tile {
+        width: 176px;
+        min-height: 100px;
+        padding: 8px;
+    }
+
+    .note-content {
+        font-size: 12px;
+        min-height: 60px;
+    }
+
+    .search-bar {
+        width: calc(100% - 16px);
+        gap: 6px;
+        padding: 7px 8px;
+    }
+
+    .dock-icons {
+        gap: 6px;
+        padding-right: 2px;
+    }
+
+    .custom-apps {
+        gap: 6px;
+    }
+
+    .app-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+    }
+
+    .app-icon img {
+        width: 15px;
+        height: 15px;
+    }
+
+    .app-icon.add-app svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .search-divider {
+        height: 28px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .search-bar button svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-height: 760px) and (min-width: 701px) {
+    .corner-greeting {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 86px;
+        max-width: min(92vw, 760px);
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}

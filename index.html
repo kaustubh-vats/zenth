@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukyo</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/icon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/icon32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="icons/icon128.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hud-left">
+            <div class="clock-time" id="clockTime">00:00</div>
+            <div class="clock-date" id="clockDate">Tuesday, April 23</div>
+        </div>
+        <div class="hud-right" aria-label="Actions">
+            <div class="battery-pill" id="batteryPill" aria-label="Battery status">--%</div>
+            <button class="hud-icon" id="actionAdd" aria-label="Quick Notes">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v14h-2zM5 11h14v2H5z"></path></svg>
+            </button>
+            <button class="hud-icon" id="actionGrid" aria-label="Grid">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path></svg>
+            </button>
+            <button class="hud-icon" id="actionBell" aria-label="Notifications">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 1 6 6v4.59l1.7 1.7A1 1 0 0 1 19 17H5a1 1 0 0 1-.7-1.71L6 13.59V9a6 6 0 0 1 6-6Zm0 18a3 3 0 0 0 2.83-2H9.17A3 3 0 0 0 12 21Z"></path></svg>
+            </button>
+        </div>
+        <section class="github-widget" id="githubWidget" aria-label="GitHub Stats">
+            <div class="github-head">
+                <div class="github-title">GitHub Snapshot</div>
+                <button type="button" id="githubToggleBtn" class="github-toggle-btn" aria-label="Minimize GitHub widget">-</button>
+            </div>
+            <div class="github-body" id="githubBody">
+                <form class="github-form" id="githubForm">
+                    <input type="text" id="githubUsername" placeholder="Enter GitHub username" autocomplete="off" required>
+                    <button type="submit" id="githubLoadBtn">Load</button>
+                </form>
+                <div class="github-status" id="githubStatus">Add your username to load profile stats.</div>
+                <div class="github-profile" id="githubProfile" hidden>
+                    <a class="github-header" id="githubProfileLink" href="#" target="_blank" rel="noopener noreferrer">
+                        <img id="githubAvatar" src="" alt="GitHub avatar">
+                        <div>
+                            <div class="github-name" id="githubName"></div>
+                            <div class="github-handle" id="githubHandle"></div>
+                        </div>
+                    </a>
+                    <div class="github-stats">
+                        <div><span id="githubRepos">0</span> Repos</div>
+                        <div><span id="githubFollowers">0</span> Followers</div>
+                        <div><span id="githubFollowing">0</span> Following</div>
+                        <div><span id="githubGists">0</span> Gists</div>
+                    </div>
+                    <div class="github-recent-title">Recently Updated</div>
+                    <div class="github-recent" id="githubRecentRepos"></div>
+                </div>
+            </div>
+        </section>
+        <section class="quick-notes" id="quickNotesPanel" aria-label="Quick Notes" hidden>
+            <div class="quick-notes-head">
+                <div class="quick-notes-title">Quick Notes</div>
+                <button type="button" id="quickNotesCloseBtn" class="quick-notes-close" aria-label="Close Notes">x</button>
+            </div>
+            <textarea id="quickNotesInput" maxlength="140" placeholder="Write a note (max 140 chars)..."></textarea>
+            <div class="quick-notes-footer">
+                <span id="quickNotesStatus">0/10 notes</span>
+                <button type="button" id="quickNotesAddBtn">Add Note</button>
+            </div>
+        </section>
+        <div class="notes-canvas" id="notesCanvas" aria-label="Saved Notes"></div>
+        <div class="corner-greeting" id="clockGreeting">Good morning.</div>
+        <div class="image">
+            <div class="ukyo"></div>
+            <div class="eyes">
+                <div class="leftEyeContainer eyeContainer">
+                    <div class="eyeball">
+                    <img src="images/eye.png" alt="Left Eye" class="eye">
+                    </div>
+                </div>
+                <div class="rightEyeContainer eyeContainer">
+                    <div class="eyeball">
+                    <img src="images/eye.png" alt="Left Eye" class="eye">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="search-bar" id="googleSearchForm" action="https://www.google.com/search" method="get" target="_blank">
+            <div class="dock-icons" aria-hidden="true">
+                <a class="app-icon youtube" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <img src="svg/youtube.svg" alt="" aria-hidden="true">
+                </a>
+                <a class="app-icon twitter" href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <img src="svg/twitter-x.svg" alt="" aria-hidden="true">
+                </a>
+                <a class="app-icon ai" href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" aria-label="OpenAI">
+                    <img src="svg/openai.svg" alt="" aria-hidden="true">
+                </a>
+                <a class="app-icon reddit" href="https://www.reddit.com" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+                    <img src="svg/reddit.svg" alt="" aria-hidden="true">
+                </a>
+                <a class="app-icon orange" href="https://www.crunchyroll.com" target="_blank" rel="noopener noreferrer" aria-label="Crunchyroll">
+                    <img src="svg/crunchyroll.svg" alt="" aria-hidden="true">
+                </a>
+                <a class="app-icon claude" href="https://claude.ai" target="_blank" rel="noopener noreferrer" aria-label="Claude">
+                    <img src="svg/claude.svg" alt="" aria-hidden="true">
+                </a>
+                <div class="custom-apps" id="customApps"></div>
+                <button type="button" class="app-icon add-app" id="addAppBtn" aria-label="Add app">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v14h-2zM5 11h14v2H5z"></path></svg>
+                </button>
+            </div>
+            <span class="search-divider" aria-hidden="true"></span>
+            <input
+                type="text"
+                id="googleSearchInput"
+                name="q"
+                placeholder="Search with /g /yt /gh /r /so"
+                autocomplete="off"
+                required
+            >
+            <button type="submit" aria-label="Search">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M10.5 3a7.5 7.5 0 0 1 5.99 12.02l4.24 4.24a1 1 0 1 1-1.42 1.42l-4.24-4.24A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"></path>
+                </svg>
+            </button>
+        </form>
+        <div class="prompt-overlay" id="promptOverlay" hidden>
+            <div class="prompt-modal" role="dialog" aria-modal="true" aria-labelledby="promptTitle">
+                <div class="prompt-title" id="promptTitle">Add Custom App</div>
+                <label class="prompt-label" for="promptUrlInput">Website URL</label>
+                <input class="prompt-input" id="promptUrlInput" type="text" placeholder="https://example.com">
+                <label class="prompt-label" for="promptNameInput">App Name</label>
+                <input class="prompt-input" id="promptNameInput" type="text" placeholder="Example">
+                <div class="prompt-error" id="promptError"></div>
+                <div class="prompt-actions">
+                    <button type="button" id="promptCancelBtn">Cancel</button>
+                    <button type="button" id="promptSaveBtn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

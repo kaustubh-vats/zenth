@@ -1,0 +1,184 @@
+.github-widget {
+    position: absolute;
+    top: 72px;
+    right: 26px;
+    width: 330px;
+    z-index: 30;
+    padding: 14px;
+    border-radius: 18px;
+    border: 1px solid var(--gh-card-border);
+    background: linear-gradient(145deg, var(--gh-card-bg-1), var(--gh-card-bg-2));
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28), inset 0 1px 0 var(--gh-card-inset);
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    transition: background 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.github-title {
+    color: #f5f8ff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+}
+
+.github-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.github-toggle-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.github-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.github-widget.collapsed .github-body {
+    display: none;
+}
+
+.github-widget.collapsed .github-head {
+    margin-bottom: 0;
+}
+
+.github-form {
+    display: flex;
+    gap: 8px;
+}
+
+.github-form input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.16);
+    color: #ffffff;
+    font-size: 13px;
+    padding: 8px 10px;
+    outline: none;
+}
+
+.github-form input::placeholder {
+    color: rgba(225, 233, 248, 0.68);
+}
+
+.github-form button {
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #f2cd57, #ebb929);
+    color: #2e2100;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.github-status {
+    margin-top: 10px;
+    color: var(--gh-status-color);
+    font-size: 12px;
+    min-height: 16px;
+}
+
+.github-profile {
+    margin-top: 10px;
+}
+
+.github-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.github-header img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.github-name {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.github-handle {
+    color: var(--gh-handle-color);
+    font-size: 12px;
+}
+
+.github-stats {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.github-stats div {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.18);
+    color: var(--gh-stat-text);
+    font-size: 11px;
+    padding: 8px 9px;
+}
+
+.github-stats span {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.github-recent-title {
+    margin-top: 10px;
+    color: var(--gh-recent-title);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.github-recent {
+    margin-top: 7px;
+    display: grid;
+    gap: 6px;
+}
+
+.github-repo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 7px 9px;
+    color: var(--gh-repo-text);
+    font-size: 12px;
+}
+
+.github-repo:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.github-repo-stars {
+    color: var(--gh-stars);
+    font-size: 11px;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .github-widget {
+        background: rgba(25, 42, 70, 0.9);
+    }
+}

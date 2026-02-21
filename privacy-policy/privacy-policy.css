@@ -1,0 +1,130 @@
+:root {
+    --bg-1: #08101f;
+    --bg-2: #142845;
+    --glass-1: rgba(20, 36, 62, 0.8);
+    --glass-2: rgba(37, 58, 94, 0.66);
+    --border: rgba(173, 204, 243, 0.4);
+    --text-main: #f2f7ff;
+    --text-muted: #d6e2ff;
+    --accent: #f2cd57;
+    --accent-strong: #ebb929;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 214, 111, 0.18), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(125, 173, 255, 0.22), transparent 34%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    padding: 28px 16px;
+}
+
+.policy-shell {
+    max-width: 860px;
+    margin: 0 auto;
+    background: linear-gradient(165deg, var(--glass-1), var(--glass-2));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    padding: 28px;
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+}
+
+.policy-header {
+    margin-bottom: 20px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(223, 203, 145, 0.75);
+    background: linear-gradient(180deg, rgba(244, 237, 210, 0.95), rgba(234, 223, 187, 0.93));
+    color: #3a404d;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: "Anton", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.03em;
+    margin: 12px 0 8px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+}
+
+h2 {
+    margin: 20px 0 8px;
+    font-size: 1.1rem;
+    color: #edf4ff;
+}
+
+p,
+li {
+    color: var(--text-muted);
+    line-height: 1.66;
+    font-size: 0.98rem;
+}
+
+ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+li + li {
+    margin-top: 5px;
+}
+
+code {
+    background: rgba(7, 17, 34, 0.56);
+    border: 1px solid rgba(191, 215, 247, 0.26);
+    border-radius: 7px;
+    padding: 2px 6px;
+    color: #f7fbff;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+}
+
+.effective-date {
+    margin-top: 0;
+}
+
+.policy-footer {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(173, 204, 243, 0.28);
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 16px 10px;
+    }
+
+    .policy-shell {
+        padding: 18px 16px;
+        border-radius: 14px;
+    }
+}

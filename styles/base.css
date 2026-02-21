@@ -1,0 +1,154 @@
+:root {
+    --ui-text: #f2f7ff;
+    --ui-muted-text: #d6e2ff;
+    --ui-border: rgba(173, 204, 243, 0.45);
+    --ui-glass-1: rgba(20, 36, 62, 0.62);
+    --ui-glass-2: rgba(37, 58, 94, 0.5);
+    --ui-overlay: rgba(6, 10, 18, 0.45);
+    --ui-accent-1: #f2cd57;
+    --ui-accent-2: #ebb929;
+    --ui-bar-border: rgba(223, 203, 145, 0.75);
+    --ui-bar-1: rgba(244, 237, 210, 0.95);
+    --ui-bar-2: rgba(234, 223, 187, 0.93);
+    --ui-bar-text: #3a404d;
+    --ui-bar-placeholder: #636a7a;
+    --ui-note-1: rgba(255, 247, 199, 0.95);
+    --ui-note-2: rgba(246, 229, 149, 0.92);
+    --ui-note-text: #2d2a1f;
+    --ui-note-done-1: rgba(214, 237, 201, 0.94);
+    --ui-note-done-2: rgba(176, 216, 155, 0.9);
+    --ui-note-done-text: #355339;
+    --gh-card-border: rgba(173, 204, 243, 0.5);
+    --gh-card-bg-1: rgba(30, 55, 93, 0.5);
+    --gh-card-bg-2: rgba(53, 84, 126, 0.42);
+    --gh-card-inset: rgba(220, 234, 255, 0.2);
+    --gh-status-color: #e3eeff;
+    --gh-handle-color: #d2e2ff;
+    --gh-stat-text: #e7f0ff;
+    --gh-recent-title: #edf4ff;
+    --gh-repo-text: #f5f9ff;
+    --gh-stars: #ffd86a;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@supports (scrollbar-color: auto) {
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--ui-accent-2) var(--ui-overlay);
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--ui-overlay);
+    border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--ui-accent-1), var(--ui-accent-2));
+    border-radius: 999px;
+    border: 2px solid var(--ui-overlay);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.06);
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background-image: url(images/day-sky.png);
+    background-position: center;
+    background-size: 200%;
+}
+
+.image {
+    width: 1536px;
+    height: 1024px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.eye {
+    width: var(--eye-size);
+    height: var(--eye-size);
+    object-fit: contain;
+}
+
+.eyes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.ukyo {
+    width: 1536px;
+    height: 1024px;
+    background-image: url(../images/img1.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15;
+}
+
+.eyeContainer {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+}
+
+.eyeContainer.leftEyeContainer {
+    --eye-size: 55px;
+    top: 380px;
+    left: 480px;
+    width: 100px;
+    height: 74px;
+}
+
+.eyeContainer.rightEyeContainer {
+    --eye-size: 65px;
+    top: 290px;
+    left: 655px;
+    width: 115px;
+    height: 80px;
+}
+
+.eyeball {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.eye {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
