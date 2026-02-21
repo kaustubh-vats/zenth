@@ -2,6 +2,10 @@
 
 A Chrome new-tab extension with a cinematic sky theme, fast search commands, quick notes, custom app shortcuts, and a GitHub profile snapshot widget.
 
+## Preview
+
+![Zenth New Tab Preview](screenshots/1.jpeg)
+
 ## Features
 
 - Dynamic sky/background theme based on time of day.
@@ -68,3 +72,4 @@ See `privacy-policy/index.html` for policy details.
 - No build tooling is required.
 - Edit modules under `js/features/` and refresh the extension in `chrome://extensions`.
 - If UI changes do not appear, use the extension "Reload" button and hard refresh the new-tab page.
+
