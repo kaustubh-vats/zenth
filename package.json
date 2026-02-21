@@ -1,0 +1,27 @@
+{
+  "name": "zenth",
+  "version": "1.0.0",
+  "description": "A Chrome new-tab extension with a cinematic sky theme, fast search commands, quick notes, custom app shortcuts, and a GitHub profile snapshot widget.",
+  "homepage": "https://github.com/kaustubh-vats/zenth#readme",
+  "bugs": {
+    "url": "https://github.com/kaustubh-vats/zenth/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaustubh-vats/zenth.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "scripts": {
+    "build:zip": "node scripts/build.js",
+    "build": "npm run build:zip",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1"
+  }
+}

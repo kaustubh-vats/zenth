@@ -50,7 +50,19 @@ A Chrome new-tab extension with a cinematic sky theme, fast search commands, qui
 
 ## Packaging
 
-To create a distributable zip manually, package the project directory contents (excluding ignored files). Current repo includes `zenth.zip` as an artifact.
+Install dependencies once:
+
+```bash
+npm install
+```
+
+Create a fresh distributable zip in `dist/`:
+
+```bash
+npm run build:zip
+```
+
+This generates `dist/zenth.zip` and excludes dev-only files/folders (for example `.git`, `.vscode`, `dist`, and existing zip artifacts).
 
 ## Permissions Used
 
@@ -69,7 +81,6 @@ See `privacy-policy/index.html` for policy details.
 
 ## Notes for Development
 
-- No build tooling is required.
+- No build tooling is required for the extension runtime.
 - Edit modules under `js/features/` and refresh the extension in `chrome://extensions`.
 - If UI changes do not appear, use the extension "Reload" button and hard refresh the new-tab page.
-
