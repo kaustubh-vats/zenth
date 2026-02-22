@@ -1,6 +1,7 @@
 const leftEye = document.querySelector(".leftEyeContainer .eye");
 const rightEye = document.querySelector(".rightEyeContainer .eye");
 const container = document.querySelector(".container");
+const SQUINT_EDGE_PADDING_PX = 18;
 
 let mouseSkyShiftX = 0;
 let smoothSkyShiftX = 0;
@@ -26,7 +27,37 @@ function moveEye(eye, mouseX, mouseY) {
 
     const moveX = Math.cos(angle) * maxX * normalized;
     const moveY = Math.sin(angle) * maxY * normalized;
-    eye.style.transform = `translate(-50%, -50%) translate(${moveX}px, ${moveY}px)`;
+
+    // Prevent both pupils from strongly converging when the cursor is between the two eyes.
+    const leftEyeContainer = leftEye?.parentElement;
+    const rightEyeContainer = rightEye?.parentElement;
+    const leftRect = leftEyeContainer?.getBoundingClientRect();
+    const rightRect = rightEyeContainer?.getBoundingClientRect();
+    const leftCenterX = leftRect ? leftRect.left + leftRect.width / 2 : NaN;
+    const rightCenterX = rightRect ? rightRect.left + rightRect.width / 2 : NaN;
+    let adjustedMoveX = moveX;
+    if (Number.isFinite(leftCenterX) && Number.isFinite(rightCenterX) && rightCenterX > leftCenterX) {
+        const eyesMidX = (leftCenterX + rightCenterX) / 2;
+        const zoneStart = leftCenterX - SQUINT_EDGE_PADDING_PX;
+        const zoneEnd = rightCenterX + SQUINT_EDGE_PADDING_PX;
+        const inSquintZone = mouseX >= zoneStart && mouseX <= zoneEnd;
+
+        if (inSquintZone) {
+            const halfZone = Math.max(1, (zoneEnd - zoneStart) / 2);
+            const edgeBlend = Math.min(1, Math.abs(mouseX - eyesMidX) / halfZone);
+
+            const inwardDirection = eye === leftEye ? 1 : -1;
+            const isInwardMove = Math.sign(moveX) === inwardDirection;
+
+            if (isInwardMove) {
+                // Strongly damp inward motion near the midpoint; recover near zone edges.
+                const inwardScale = 0.08 + 0.92 * edgeBlend;
+                adjustedMoveX = moveX * inwardScale;
+            }
+        }
+    }
+
+    eye.style.transform = `translate(-50%, -50%) translate(${adjustedMoveX}px, ${moveY}px)`;
 }
 
 function applyThemeBySky(skyKey) {
