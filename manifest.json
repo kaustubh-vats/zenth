@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Zenth - A Cinematic New Tab",
   "description": "Dynamic skies shift with your day—from sunrise to aurora nights. Zenth creates calm focus, with Ukyo watching your cursor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "permissions": ["storage", "identity", "identity.email"],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://api.github.com; img-src 'self' https: data:;"
