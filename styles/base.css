@@ -76,7 +76,7 @@ body {
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    background-image: url(images/day-sky.png);
+    background-image: url(../images/day-sky.png);
     background-position: center;
     background-size: 200%;
 }
